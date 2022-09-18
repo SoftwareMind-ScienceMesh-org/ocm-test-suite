@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
-apt-get update
-apt-get install -yq docker.io
+#apt-get update
+#apt-get install -yq docker.io
 docker ps
 git clone https://github.com/cs3org/ocm-test-suite
 cd ocm-test-suite
