@@ -15,8 +15,10 @@ function waitForPort {
   echo $1 port $2 is open
 }
 
+#docker run -d --network=testnet --name=revaoc2.docker -v /home/cern/git/ocm-test-suite/reva:/reva -e HOST=revaoc2 revad
 docker run -d --network=testnet --name=revaoc2.docker -e HOST=revaoc2 revad
 docker run -d --network=testnet -e MARIADB_ROOT_PASSWORD=eilohtho9oTahsuongeeTh7reedahPo1Ohwi3aek --name=maria2.docker mariadb --transaction-isolation=READ-COMMITTED --binlog-format=ROW --innodb-file-per-table=1 --skip-innodb-read-only-compressed
+#docker run -d --network=testnet -p 8443:443 --name=oc2.docker -v /home/cern/git/ocm-test-suite/oc-sciencemesh:/var/www/html/apps/sciencemesh oc2
 docker run -d --network=testnet --name=oc2.docker oc2
 
 waitForPort maria2.docker 3306
