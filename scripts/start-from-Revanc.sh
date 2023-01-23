@@ -18,9 +18,8 @@ function waitForPort {
 #docker run -d --network=testnet --name=revanc1.docker -v /home/cern/git/ocm-test-suite/reva:/reva -e HOST=revanc1 revad
 docker run -d --network=testnet --name=revanc1.docker -e HOST=revanc1 revad
 docker run -d --network=testnet -e MARIADB_ROOT_PASSWORD=eilohtho9oTahsuongeeTh7reedahPo1Ohwi3aek --name=maria1.docker mariadb --transaction-isolation=READ-COMMITTED --binlog-format=ROW --innodb-file-per-table=1 --skip-innodb-read-only-compressed
-docker run -d --network=testnet -p 443:443 --name=nc1.docker -v /home/cern/git/ocm-test-suite/nc-sciencemesh/:/var/www/html/apps/sciencemesh nc1
-#docker run -d --network=testnet --expose 443 -p 443:443 --name=nc1.docker -v /home/cern/git/ocm-test-suite/nc-sciencemesh/:/var/www/html/apps/sciencemesh nc1
-docker run -d --network=testnet --name=nc1.docker nc1
+#docker run -d --network=testnet -p 443:443 --name=nc1.docker -v /home/cern/git/ocm-test-suite/nc-sciencemesh/:/var/www/html/apps/sciencemesh nc1
+docker run -d --network=testnet -p 443:443 --name=nc1.docker nc1
 
 waitForPort maria1.docker 3306
 waitForPort nc1.docker 443
