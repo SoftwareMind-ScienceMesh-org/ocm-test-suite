@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+export DOCKER_BUILDKIT=0
+
 # docker build -t tester .
 
 # image for stub1 and stub2:
@@ -33,7 +35,7 @@ docker build -t apache-php-8.0 .
 # base image for nc1 image and nc2 image:
 cd ../nextcloud
 # docker build -t nextcloud --build-arg CACHEBUST=`date +%s` .
-docker build -t nextcloud .
+docker build -t nextcloud -m 4g .
 
 # image for nc1:
 cd ../nc1
